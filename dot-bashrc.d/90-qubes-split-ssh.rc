@@ -1,0 +1,7 @@
+# qubes split ssh
+
+if uname -r | grep 'qubes' > /dev/null; then
+	export SSH_AUTH_SOCK="$HOME/.qubes-split-ssh-agent"
+	rm -f "$SSH_AUTH_SOCK"
+	(umask 177 && exec socat "UNIX-LISTEN:$SSH_AUTH_SOCK,fork" "EXEC:qrexec-client-vm vault qubes.SplitSSH") &
+fi
