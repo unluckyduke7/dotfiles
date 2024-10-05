@@ -1,0 +1,6 @@
+# nvm
+
+if [[ -d "$HOME/.nvm" ]]; then
+	[[ -s "$HOME/.nvm/nvm.sh" ]] && \. "$HOME/.nvm/nvm.sh"
+	[[ -s "$HOME/.nvm/bash_completion" ]] && \. "$HOME/.nvm/bash_completion"
+fi
