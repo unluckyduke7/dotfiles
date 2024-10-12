@@ -3,4 +3,6 @@
 if [[ -d "$HOME/.goenv" ]]; then
 	command -v goenv > /dev/null || export PATH="$HOME/.goenv/bin:$PATH"
 	eval "$(goenv init -)"
+	[[ -n "$GOROOT" && ! "$PATH" == *"$GOROOT/bin"* ]] && export PATH="$GOROOT/bin:$PATH"
+	[[ -n "$GOPATH" && ! "$PATH" == *"$GOPATH/bin"* ]] && export PATH="$PATH:$GOPATH/bin"
 fi
